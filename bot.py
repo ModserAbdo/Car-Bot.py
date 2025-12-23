@@ -5,7 +5,7 @@ import sqlite3
 import os
 
 # ================== الإعدادات ==================
-TOKEN = "8328705400:AAHvExlsI-fUTD4sL6NS2gp1yr38TGaoL2w"
+TOKEN = os.environ.get("8328705400:AAHvExlsI-fUTD4sL6NS2gp1yr38TGaoL2w")
 ADMIN_ID = 7942621245  # ← ضع Telegram ID الخاص بك
 
 DB_NAME = "cars.db"
@@ -148,4 +148,5 @@ dp.add_handler(MessageHandler(Filters.photo, handle_add_steps))
 dp.add_handler(MessageHandler(Filters.text & ~Filters.command, search_car))
 
 updater.start_polling()
+
 updater.idle()
